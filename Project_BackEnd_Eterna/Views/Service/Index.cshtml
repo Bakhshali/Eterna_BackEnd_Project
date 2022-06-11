@@ -1,0 +1,122 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+@model ServiceVM
+
+<main>
+        <section id="cards">
+            <div class="container">
+                <div class="row mt-5">
+                 @foreach (Cart cart in Model.Carts)
+                {
+                     <div class="col-lg-4 col-md-6 col-sm-12">
+                    <div class="box mt-4">
+                        <div class="basket mt-5">
+                            <div class="icon">
+                                <i class="@cart.Icon"></i>                              
+                            </div>                          
+                           <div class="title mt-4">
+                            <h2>@cart.Title</h2>
+                           </div>
+                           <div class="text mt-2">
+                            <p>@cart.Subtitle</p>
+                           </div>        
+                        </div>
+                    </div>
+                  </div>
+                }
+
+                </div>
+
+                
+            </div>
+        </section>
+
+
+        <section id="skills">
+            <div class="container">
+                <div class="row">
+                    <div class="our mt-5">
+                        <h4>
+                            @Model.Statistics.Title             
+                        </h4>
+                         <div class="xet d-flex justify-content-center">
+                            <hr >
+                           </div>
+                        <p>
+                            @Model.Statistics.Subtitle
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+          
+        
+        <section id="progres-bar" >
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="images">
+                         <img src="./assets/img/skills-img.jpg" alt="">
+                        </div>
+                     </div>
+ 
+                     <div class="col-lg-6 progre">
+ 
+                         <div class="title ">
+                             <h2>
+                                 @Model.Statistics.MainText
+                             </h2>
+ 
+                             <i>@Model.Statistics.AnotherText</i>
+                         </div>
+                      
+                         <div class="progress">
+                             <div class="progress-bar bg-danger" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+                             @layoutservice.GetDatas().Result.FirstOrDefault(p=>p.Key.ToLower().Trim() == "html").Value%
+                             </div>
+                           </div>
+                           <span>HTML</span>
+                           <div class="progress">
+                             <div class="progress-bar bg-danger" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"> @layoutservice.GetDatas().Result.FirstOrDefault(p=>p.Key.ToLower().Trim() == "css").Value%</div>
+                           </div>
+                           <span>CSS</span>
+                           <div class="progress">
+                             <div class="progress-bar bg-danger" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"> @layoutservice.GetDatas().Result.FirstOrDefault(p=>p.Key.ToLower().Trim() == "javascript").Value%</div>
+                           </div>
+                           <span>JAVASCRIPT</span>
+                           <div class="progress">
+                             <div class="progress-bar bg-danger" role="progressbar" style="width: 55%" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"> @layoutservice.GetDatas().Result.FirstOrDefault(p=>p.Key.ToLower().Trim() == "photoshop").Value%</div>
+                           </div>
+                           <span>PHOTOSHOP</span>
+                     </div>
+                
+                </div>
+            </div>
+        </section>
+                
+                   
+          
+
+        <section id="newsletter">
+          <div class="container">
+            <div class="row">
+                <div class="email mt-5 d-flex justify-content-between">
+                    <div class="title m-5  ">
+                        <h2>Our Newsletter</h2>  
+                        <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>            
+                    </div>
+                    <div class="search mt-5">
+                        <form action="">
+                            <input type="email" name="" id=""> <button class="btn btn-danger ">Subscribe</button>
+                        </form> 
+                    </div>
+                </div>
+            </div>
+          </div>
+        </section>
+
+    </main>
+
